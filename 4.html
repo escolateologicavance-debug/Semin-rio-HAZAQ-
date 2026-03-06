@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAZAQ - 4ª Temporada</title>
+    <style>
+        :root { --azul: #051020; --branco: #ffffff; --botao: #185adb; --texto: #2d2d2d; --concluido: #1b5e20; --alerta: #b22222; }
+        body { background-color: #f8f9fa; color: var(--texto); font-family: 'Times New Roman', Times, serif; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: var(--azul); color: var(--branco); padding: 25px; text-align: center; border-bottom: 4px solid #d4af37; }
+        .logo { width: 90px; margin-bottom: 10px; }
+        .container { max-width: 650px; margin: 0 auto; padding: 30px; flex: 1; }
+        
+        /* Mapa de Progresso Final */
+        .mapa-jornada { display: flex; justify-content: space-between; margin-bottom: 30px; gap: 10px; }
+        .fase { flex: 1; padding: 12px 5px; border-radius: 4px; font-size: 0.7em; font-weight: bold; text-align: center; border: 1px solid #ddd; }
+        .fase-check { background: var(--concluido); color: white; border: none; }
+        .fase-ativa { background: #d4af37; color: #051020; border: 2px solid var(--azul); box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+
+        /* Devocional de Alto Impacto */
+        .devocional-box { background: white; border: 1px solid #e0e0e0; border-top: 6px solid #d4af37; padding: 35px; border-radius: 2px; margin: 25px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .devocional-box h4 { text-align: center; color: var(--azul); font-size: 1.4em; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; }
+        .ref-biblica { font-weight: bold; color: #d4af37; display: block; text-align: center; margin-bottom: 20px; font-style: italic; font-size: 1.1em; }
+        #texto-devocional { line-height: 1.8; text-align: justify; font-size: 1.15em; color: #1a1a1a; }
+        #texto-devocional p { margin-bottom: 15px; }
+
+        .btn-audio { background: #051020; color: #d4af37; border: 1px solid #d4af37; padding: 15px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; text-transform: uppercase; }
+        .btn-audio:hover { background: #d4af37; color: white; }
+        
+        /* Seção de Conteúdo */
+        h3.titulo-secao { border-bottom: 2px solid #eee; padding-bottom: 10px; color: var(--azul); margin-top: 40px; }
+        .curso-card { 
+            display: flex; align-items: center; background: var(--azul); color: white; 
+            padding: 22px; margin: 18px 0; border-radius: 8px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: 0.3s; border-left: 5px solid #d4af37;
+        }
+        .curso-card:hover { transform: translateX(5px); background: #0a1e3d; }
+        .curso-card small { color: #d4af37; font-weight: normal; }
+
+        .btn-finalizar { background: var(--concluido); color: white; border: none; padding: 20px; width: 100%; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 40px; font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; }
+
+        footer { background-color: var(--azul); color: #d4af37; padding: 20px; text-align: center; font-size: 0.85em; border-top: 2px solid #d4af37; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo-192.png" alt="Logo HAZAQ" class="logo">
+        <h2 style="margin:0">4ª Temporada</h2>
+        <small>CUMPRIMENTO DO MINISTÉRIO E GOVERNO</small>
+    </header>
+
+    <main class="container">
+        <section class="mapa-jornada">
+            <div class="fase fase-check">1ª TEMP.<br>✓</div>
+            <div class="fase fase-check">2ª TEMP.<br>✓</div>
+            <div class="fase fase-check">3ª TEMP.<br>✓</div>
+            <div class="fase fase-ativa">4ª TEMP.<br>MATURIDADE</div>
+        </section>
+
+        <section class="devocional-box">
+            <h4>O Altar do Silêncio e o Peso da Glória</h4>
+            <span class="ref-biblica">“Aquietai-vos e sabei que Eu Sou Deus.” (Salmo 46:10)</span>
+            
+            <div id="texto-devocional">
+                <p>Seminarista, antes de dominar as línguas dos homens e dos anjos, você precisa dominar o barulho da sua própria alma. A rotina é a maior inimiga da devoção; ela transforma o sagrado em comum e o altar em balcão de negócios. Deus não está interessado na sua performance acadêmica se o seu coração for um deserto de intimidade.</p>
+                <p>Neste estágio da jornada HAZAQ, o desafio não é ler mais livros, mas deixar-se ler pelo Autor da Vida. O relacionamento efetivo com o Pai exige o sacrifício do seu tempo e a morte do seu 'eu' apressado. Tire as sandálias. O conhecimento sem oração produz orgulho, mas a oração com conhecimento produz autoridade.</p>
+                <p>Aqueça o seu espírito no fogo que não se apaga. Que este momento não seja uma etapa a ser cumprida, mas um encontro onde você se despe de títulos para ser apenas um filho que ouve o Pai. Se a sua teologia não te leva a dobrar os joelhos em temor, ela é apenas palha. Busque a face, não apenas as mãos. Sinta o peso da Glória que separa o obreiro comum do escolhido de elite.</p>
+            </div>
+
+            <button onclick="lerDevocional()" class="btn-audio">
+                <span>🔊</span> OUVIR INSTRUÇÃO AO ESPÍRITO
+            </button>
+        </section>
+
+        <h3 class="titulo-secao">Formação Ministerial Avançada</h3>
+
+        <a href="https://escolateologicavance-debug.github.io/Curso-de-Escatologia-Pr--Tribulacionista/" class="curso-card" target="_blank">
+            <span style="font-size: 28px; margin-right: 18px;">🎺</span>
+            <div>Escatologia Pré-Tribulacionista<br><small>O Código do Tempo do Fim</small></div>
+        </a>
+
+        <a href="https://escolateologicavance-debug.github.io/Curso-Lideran-a-Pastoral-/" class="curso-card" target="_blank">
+            <span style="font-size: 28px; margin-right: 18px;">👑</span>
+            <div>Liderança Pastoral<br><small>Governo, Ética e Gestão do Rebanho</small></div>
+        </a>
+
+        <a href="https://escolateologicavance-debug.github.io/Orat-ria-Crist-/" class="curso-card" target="_blank">
+            <span style="font-size: 28px; margin-right: 18px;">🗣️</span>
+            <div>Oratória Cristã<br><small>A Arte da Proclamação do Reino</small></div>
+        </a>
+
+        <button class="btn-finalizar" onclick="finalizarCurso()">CONCLUIR SEMINÁRIO HAZAQ</button>
+    </main>
+
+    <footer>Faculdade Teológica AVANCE - Seminário HAZAQ</footer>
+
+    <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+    <script>
+        function lerDevocional() {
+            const texto = document.getElementById('texto-devocional').innerText;
+            const msg = new SpeechSynthesisUtterance(texto);
+            msg.lang = 'pt-BR';
+            msg.rate = 0.9; // Leitura levemente mais lenta para introspecção
+            msg.pitch = 0.8; // Tom mais grave e solene
+            window.speechSynthesis.speak(msg);
+        }
+
+        function finalizarCurso() {
+            localStorage.setItem('hazaq_completo', 'true');
+            alert('A jornada técnica termina aqui, mas o ministério está apenas começando. Você está aprovado para a Sagração Final!');
+            // Aqui você pode redirecionar para uma página final de formatura se desejar
+        }
+    </script>
+</body>
+</html>

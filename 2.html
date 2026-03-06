@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAZAQ - 2ª Temporada</title>
+    <style>
+        :root { --azul: #0a1931; --branco: #ffffff; --botao: #185adb; --texto: #333333; --concluido: #28a745; }
+        body { background-color: var(--branco); color: var(--texto); font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: var(--azul); color: var(--branco); padding: 20px; text-align: center; }
+        .logo { width: 100px; margin-bottom: 5px; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; flex: 1; }
+        
+        .mapa-jornada { display: flex; justify-content: space-between; margin-bottom: 25px; gap: 8px; }
+        .fase { flex: 1; padding: 10px 5px; border-radius: 8px; font-size: 0.65em; font-weight: bold; text-align: center; }
+        .fase-check { background: var(--concluido); color: white; }
+        .fase-ativa { background: var(--botao); color: white; border: 2px solid var(--azul); }
+        .fase-off { background: #eee; color: #999; }
+
+        .devocional-box { background: #f0f4f8; border-left: 5px solid var(--botao); padding: 20px; border-radius: 5px; margin: 20px 0; text-align: justify; }
+        .ref-biblica { font-weight: bold; color: var(--botao); display: block; margin-bottom: 10px; }
+        
+        .curso-card { 
+            display: flex; align-items: center; background: var(--azul); color: white; 
+            padding: 20px; margin: 15px 0; border-radius: 12px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;
+        }
+        .curso-card:hover { transform: translateY(-3px); background: var(--botao); }
+        .card-off { background: #ccc; cursor: not-allowed; }
+
+        .btn-concluir { background: var(--concluido); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 30px; }
+        footer { background-color: var(--azul); color: white; padding: 15px; text-align: center; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo-192.png" alt="Logo HAZAQ" class="logo">
+        <h2 style="margin:0">2ª Temporada</h2>
+        <small>Especialização e Médio em Teologia</small>
+    </header>
+
+    <main class="container">
+        <section class="mapa-jornada">
+            <div class="fase fase-check">1ª TEMP.<br>✓</div>
+            <div class="fase fase-ativa">2ª TEMP.<br>CURSANDO</div>
+            <div class="fase fase-off">3ª TEMP.<br>🔒</div>
+            <div class="fase fase-off">4ª TEMP.<br>🔒</div>
+        </section>
+
+        <section class="devocional-box">
+            <h4 style="margin-top:0; color: var(--azul);">📖 Devocionário: A Cronologia da Soberania no Campo de Batalha</h4>
+            <span class="ref-biblica">Base Bíblica: Isaías 46:10</span>
+            <div id="texto-devocional">
+                <p>A Sincrologia não é um estudo passivo; é o domínio da linha do tempo divina que <strong>mune o obreiro</strong> para intervir com autoridade onde o caos parece reinar. Na Capelania, o seminarista não é um espectador da dor, mas o especialista do Reino que sabe que nenhum leito de hospital ou cela de prisão está fora da jurisdição do Deus que anuncia o fim desde o princípio.</p>
+                <p>O historiador Flávio Josefo provou que a ignorância sobre os tempos divinos leva à ruína; por isso, o obreiro HAZAQ estuda a Sincrologia para identificar o <em>Kairós</em> de Deus na vida do assistido. George Washington compreendia que os eventos são geridos por uma Providência soberana; da mesma forma, o capelão atua com a certeza técnica de que conduz o aflito à vontade de Deus.</p>
+            </div>
+            <button onclick="ler()" style="background:#ffcc00; border:none; padding:10px; border-radius:20px; cursor:pointer; font-weight:bold; width: 100%;">🔊 Ouvir Mensagem</button>
+        </section>
+
+        <a href="https://escolateologicavance-debug.github.io/curso-avance-intermediario/" class="curso-card">
+            <span style="font-size: 24px; margin-right: 15px;">📚</span>
+            <div>Médio em Teologia<br><small>Nível Intermediário</small></div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1kPR5UfRBgfsakVMJgnVOeRpDYCXpGShS/view?usp=drivesdk" target="_blank" class="curso-card">
+            <span style="font-size: 24px; margin-right: 15px;">🏥</span>
+            <div>Capelania Cristã<br><small>Intervenção Social (APK)</small></div>
+        </a>
+
+        <div class="curso-card card-off">
+            <span style="font-size: 24px; margin-right: 15px;">⏳</span>
+            <div>Sincrologia Bíblica<br><small>(Em breve)</small></div>
+        </div>
+
+        <button class="btn-concluir" onclick="concluirFase()">CONCLUIR 2ª TEMPORADA</button>
+    </main>
+
+    <footer>Faculdade Teológica AVANCE - Seminário HAZAQ</footer>
+
+    <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+    <script>
+        function ler() {
+            const texto = document.getElementById('texto-devocional').innerText;
+            const msg = new SpeechSynthesisUtterance(texto);
+            msg.lang = 'pt-BR';
+            window.speechSynthesis.speak(msg);
+        }
+
+        function concluirFase() {
+            localStorage.setItem('fase2_concluida', 'true');
+            alert('Parabéns! Temporada 2 concluída. Prepare-se para o nível Avançado na 3ª Temporada.');
+            window.location.href = "3.html";
+        }
+    </script>
+</body>
+</html>

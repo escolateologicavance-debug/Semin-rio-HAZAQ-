@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAZAQ - 1ª Temporada</title>
+    <style>
+        :root { --azul: #0a1931; --branco: #ffffff; --botao: #185adb; --texto: #333333; --bloqueado: #e0e0e0; }
+        body { background-color: var(--branco); color: var(--texto); font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        header { background-color: var(--azul); color: var(--branco); padding: 20px; text-align: center; }
+        .logo { width: 120px; margin-bottom: 10px; }
+        
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; flex: 1; }
+        
+        /* Mapa da Jornada */
+        .mapa-jornada { display: flex; justify-content: space-between; margin: 20px 0 30px 0; gap: 8px; }
+        .fase { flex: 1; padding: 12px 5px; border-radius: 8px; font-size: 0.65em; font-weight: bold; text-align: center; line-height: 1.2; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .fase-ativa { background: var(--botao); color: white; border: 2px solid var(--azul); }
+        .fase-off { background: var(--bloqueado); color: #888; border: 1px solid #ccc; cursor: not-allowed; }
+
+        .boas-vindas { text-align: justify; line-height: 1.6; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .citacao-biblica { font-style: italic; color: var(--botao); font-weight: bold; display: block; margin: 10px 0; }
+        
+        .devocional-box { background: #f9f9f9; border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .btn-audio { background: #ffcc00; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+
+        .curso-card { 
+            display: flex; align-items: center; background: var(--azul); color: white; 
+            padding: 18px; margin: 12px 0; border-radius: 12px; text-decoration: none; 
+            transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .curso-card:hover { background: var(--botao); transform: translateY(-2px); }
+        .curso-icon { font-size: 24px; margin-right: 15px; }
+
+        footer { background-color: var(--azul); color: white; padding: 15px; text-align: center; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo-192.png" alt="Logo HAZAQ" class="logo">
+        <h2 style="margin:0">Portal do Seminarista</h2>
+    </header>
+
+    <main class="container">
+        
+        <section class="mapa-jornada">
+            <div class="fase fase-ativa">1ª TEMP.<br>PROPE-DÊUTICO</div>
+            <div class="fase fase-off">2ª TEMP.<br>🔒 BLOQUEADA</div>
+            <div class="fase fase-off">3ª TEMP.<br>🔒 BLOQUEADA</div>
+            <div class="fase fase-off">4ª TEMP.<br>🔒 BLOQUEADA</div>
+        </section>
+
+        <section class="boas-vindas">
+            <h3>Paz seja convosco!</h3>
+            <p>
+                Bem-vindo ao <strong>Período Propedêutico</strong>. O nome <strong>חזק (HAZAQ)</strong> reflete a ordem de <strong>Joel 3:10</strong>. Esta fase é o alicerce para sua guinada antroposocial e ministerial, pautada na renovação do entendimento:
+            </p>
+            <span class="citacao-biblica">"Transformai-vos pela renovação do vosso entendimento..." (Romanos 12:2)</span>
+            <p>
+                Ao final desta etapa, sua alfabetização em <strong>Hebraico Bíblico</strong> e base teológica serão os divisores de águas para sua vocação.
+            </p>
+        </section>
+
+        <section class="devocional-box" id="devocional">
+            <h4 style="margin-top:0; color: var(--azul);">📖 Devocionário: A Força da Caráter</h4>
+            <p id="texto-devocional">
+                O historiador grego Tucídides ensinou que a força de uma estrutura não está nas suas paredes, mas no caráter de quem a habita. No Reino, sua estrutura é a mente renovada. Como o Imperador Marco Aurélio valorizava a disciplina, o obreiro busca a sã doutrina. O saber (Hazaq) aliado à fé produz um alicerce inabalável.
+            </p>
+            <button class="btn-audio" onclick="lerDevocional()">🔊 Ouvir Devocional</button>
+        </section>
+
+        <h3 style="color: var(--azul);">Módulos de Estudo</h3>
+        
+        <a href="https://escolateologicavance-debug.github.io/Curso-B-sico-em-Teologia-/" class="curso-card">
+            <span class="curso-icon">📚</span>
+            <div><strong>Básico em Teologia</strong><br><small>Doutrina e Fundamentos</small></div>
+        </a>
+
+        <a href="https://escolateologicavance-debug.github.io/hebr-aico/" class="curso-card">
+            <span class="curso-icon">📜</span>
+            <div><strong>Hebraico Bíblico</strong><br><small>Alfabetização e Raízes</small></div>
+        </a>
+
+    </main>
+
+    <footer>
+        Projeto Vinculado com Faculdade Teológica AVANCE<br>
+        "Ultrapassando Limites"
+    </footer>
+
+    <div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper></div></div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+    <script>
+        function lerDevocional() {
+            const texto = document.getElementById('texto-devocional').innerText;
+            const sintese = new SpeechSynthesisUtterance(texto);
+            sintese.lang = 'pt-BR';
+            sintese.rate = 0.9;
+            window.speechSynthesis.speak(sintese);
+        }
+    </script>
+</body>
+</html>
