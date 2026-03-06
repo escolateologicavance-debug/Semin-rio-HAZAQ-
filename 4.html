@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -99,21 +99,13 @@
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
 
-    <script>
-        function lerDevocional() {
-            const texto = document.getElementById('texto-devocional').innerText;
-            const msg = new SpeechSynthesisUtterance(texto);
-            msg.lang = 'pt-BR';
-            msg.rate = 0.9; // Leitura levemente mais lenta para introspecção
-            msg.pitch = 0.8; // Tom mais grave e solene
-            window.speechSynthesis.speak(msg);
-        }
+function concluirSeminario() {
+    // Grava a conclusão final
+    localStorage.setItem('seminario_concluido', 'true');
+    
+    // Remove o alerta e pula direto para a formatura
+    window.location.href = "formatura.html";
+}
 
-        function finalizarCurso() {
-            localStorage.setItem('hazaq_completo', 'true');
-            alert('A jornada técnica termina aqui, mas o ministério está apenas começando. Você está aprovado para a Sagração Final!');
-            // Aqui você pode redirecionar para uma página final de formatura se desejar
-        }
-    </script>
 </body>
-</html>
+</html>      
